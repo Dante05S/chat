@@ -12,8 +12,8 @@ export default function Meta(): JSX.Element {
       <>
         <meta property="og:title" content={title} />
         <meta name="description" content={description} />
-        <meta property="og:site_name" content="chat" />
-        <meta property="og:url" content="https://chat-pi-tan.vercel.app/" />
+        <meta property="og:site_name" content="chat.abs()" />
+        <meta property="og:url" content="https://chat-abs.vercel.app/" />
         <meta property="og:description" content={description} />
         <title>{title}</title>
       </>
