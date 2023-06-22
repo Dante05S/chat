@@ -4,10 +4,7 @@ import PageProvider from 'context/PageContext/PageProvider';
 
 export default function Home(): JSX.Element {
   return (
-    <PageProvider
-      title="Home"
-      description="Pagina principal para iniciar a usar el chat"
-    >
+    <PageProvider description="Pagina principal para iniciar a usar el chat">
       <div className={styles.container}>
         <main className={styles.main}>
           <h1 className="text-3xl text-blue-300">Funca tailwind!</h1>

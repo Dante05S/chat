@@ -9,7 +9,7 @@ import PageProvider from 'context/PageContext/PageProvider';
 
 export default function chat(): JSX.Element {
   return (
-    <PageProvider title="Chat" description="Chat App">
+    <PageProvider description="Chat App">
       <ChatView />
     </PageProvider>
   );

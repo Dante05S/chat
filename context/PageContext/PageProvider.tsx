@@ -3,13 +3,13 @@ import { PageContext } from '.';
 import Meta from 'components/Meta';
 
 interface Props {
-  title: string;
+  title?: string;
   description: string;
   children: React.ReactNode;
 }
 
 export default function PageProvider({
-  title,
+  title = 'Chat.ABS()',
   description,
   children
 }: Props): JSX.Element {
