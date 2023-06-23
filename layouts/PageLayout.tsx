@@ -1,5 +1,6 @@
-import NavBar from 'components/Navbar';
 import React from 'react';
+import Footer from 'components/Footer';
+import NavBar from 'components/Navbar';
 
 interface Props {
   children: React.ReactNode;
@@ -10,6 +11,7 @@ export default function PageLayout({ children }: Props): JSX.Element {
     <>
       <NavBar />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }

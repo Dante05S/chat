@@ -6,6 +6,10 @@ export default function Document(): JSX.Element {
       <Head>
         <meta name="robots" content="index,follow" />
         <meta property="og:type" content="website" />
+        <link
+          rel="shortcut icon"
+          href={`${process.env.PUBLIC_URL ?? ''}/favicon.png`}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
