@@ -23,6 +23,7 @@ export default function Document(): JSX.Element {
       </Head>
       <body className="font-body">
         <Main />
+        <div id="aside" />
         <NextScript />
       </body>
     </Html>

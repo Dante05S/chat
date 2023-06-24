@@ -17,8 +17,8 @@ interface Props {
 export default function Avatar({
   children,
   size = 50,
-  src,
-  alt
+  src = '',
+  alt = ''
 }: Props): JSX.Element {
   return (
     <>
@@ -34,16 +34,11 @@ export default function Avatar({
             height: size
           }}
         >
-          <Image
-            fill
-            className="object-cover"
-            src={src ?? ''}
-            alt={alt ?? ''}
-          />
+          <Image fill className="object-cover" src={src} alt={alt} />
         </div>
       ) : (
         <div
-          className="rounded-full bg-primary text-white flex justify-center items-center"
+          className="rounded-full bg-primary text-primary-font flex justify-center items-center"
           style={{
             maxWidth: size,
             minWidth: size,
