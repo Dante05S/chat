@@ -1,3 +1,6 @@
+// Next
+import dynamic from 'next/dynamic';
+
 // React
 import React, { useState } from 'react';
 
@@ -7,6 +10,16 @@ import ClickAwayListener from 'components/ClickAwayListener';
 import Tooltip from 'components/Display/Tooltip';
 import Card from 'components/Surfaces/Card';
 import navItemsUser from 'utils/navItemsUser';
+import useModal from 'hooks/useModal';
+const Aside = dynamic(async () => await import('components/Navigation/Aside'), {
+  ssr: false
+});
+const AsideUser = dynamic(
+  async () => await import('components/AsideViews/AsideUser'),
+  {
+    ssr: false
+  }
+);
 
 function ContentTooltip(): JSX.Element {
   return (
@@ -38,33 +51,52 @@ function ContentTooltip(): JSX.Element {
 
 export default function User(): JSX.Element {
   const [open, setOpen] = useState<boolean>(false);
+  const [openAside, toggleAside] = useModal();
 
   return (
-    <ClickAwayListener
-      onClickAway={() => {
-        setOpen(false);
-      }}
-    >
-      <Tooltip
-        title={<ContentTooltip />}
-        placement="bottom-start"
-        open={open}
-        disableHoverListener
-      >
+    <>
+      <div className="md:hidden">
         <button
           onClick={() => {
-            setOpen(true);
+            toggleAside();
           }}
         >
-          <div className="flex items-center">
-            <Avatar size={40}>A</Avatar>
-            <div className="flex flex-col ml-2.5">
-              <p className="text-base">¡Bienvenido!, Alejandro</p>
-              <p className="text-sm text-primary text-left">+57 321 8403738</p>
-            </div>
-          </div>
+          <Avatar size={40}>A</Avatar>
         </button>
-      </Tooltip>
-    </ClickAwayListener>
+      </div>
+      <div className="hidden md:block">
+        <ClickAwayListener
+          onClickAway={() => {
+            setOpen(false);
+          }}
+        >
+          <Tooltip
+            title={<ContentTooltip />}
+            placement="bottom-start"
+            open={open}
+            disableHoverListener
+          >
+            <button
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              <div className="flex items-center">
+                <Avatar size={40}>A</Avatar>
+                <div className="flex flex-col ml-2.5">
+                  <p className="text-base">¡Bienvenido!, Alejandro</p>
+                  <p className="text-sm text-primary text-left">
+                    +57 321 8403738
+                  </p>
+                </div>
+              </div>
+            </button>
+          </Tooltip>
+        </ClickAwayListener>
+      </div>
+      <Aside show={openAside} toggle={toggleAside} position="right">
+        <AsideUser />
+      </Aside>
+    </>
   );
 }

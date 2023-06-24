@@ -8,7 +8,7 @@ import User from './User';
 export default function NavBar(): JSX.Element {
   return (
     <header>
-      <nav className="py-3 px-5 flex justify-between items-center">
+      <nav className="py-3 px-3 xxs:px-5 flex justify-between items-center">
         <Logo />
         <User />
       </nav>
