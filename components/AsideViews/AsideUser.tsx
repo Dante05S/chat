@@ -4,7 +4,7 @@ import navItemsUser from 'utils/navItemsUser';
 
 export default function AsideUser(): JSX.Element {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center w-full h-full">
       <Avatar size={65}>A</Avatar>
       <div className="mt-2.5 w-full flex flex-col items-center gap-0.5">
         <span>¡Bienvenido! Alejandro</span>

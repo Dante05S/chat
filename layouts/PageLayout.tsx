@@ -10,7 +10,9 @@ export default function PageLayout({ children }: Props): JSX.Element {
   return (
     <>
       <NavBar />
-      <main>{children}</main>
+      <main>
+        <div className="relative py-3 px-3 xxs:px-5">{children}</div>
+      </main>
       <Footer />
     </>
   );

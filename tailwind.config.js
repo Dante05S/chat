@@ -3,7 +3,9 @@ module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}'
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './layouts/**/*.{js,ts,jsx,tsx}',
+    './views/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
@@ -16,7 +18,14 @@ module.exports = {
           DEFAULT: '#1B1B1B',
           font: '#ffffff'
         },
-        pane: 'rgba(46, 44, 54, 0.2)'
+        pane: 'rgba(46, 44, 54, 0.2)',
+        error: {
+          DEFAULT: 'rgb(211, 47, 47)',
+          background: '#f8d7da',
+          font: '#721c24'
+        },
+        background: '#000000',
+        success: '#64AE65'
       },
       screens: {
         'xxs': '369px',
