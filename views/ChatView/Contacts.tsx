@@ -5,7 +5,7 @@ import React from 'react';
 export default function Contacts(): JSX.Element {
   return (
     <ul className="flex items-center gap-5">
-      {[1, 2, 3, 4].map((item) => (
+      {[1, 2, 3].map((item) => (
         <li key={item} className="flex">
           <div className="flex flex-col items-center">
             <Badge
