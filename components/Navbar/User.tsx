@@ -11,13 +11,16 @@ import Tooltip from 'components/Display/Tooltip';
 import Card from 'components/Surfaces/Card';
 import navItemsUser from 'utils/navItemsUser';
 import useModal from 'hooks/useModal';
+import Loading from 'components/Loaders/Loading';
+
 const Aside = dynamic(async () => await import('components/Navigation/Aside'), {
   ssr: false
 });
 const AsideUser = dynamic(
   async () => await import('components/AsideViews/AsideUser'),
   {
-    ssr: false
+    ssr: false,
+    loading: () => <Loading />
   }
 );
 
@@ -95,7 +98,9 @@ export default function User(): JSX.Element {
         </ClickAwayListener>
       </div>
       <Aside show={openAside} toggle={toggleAside} position="right">
-        <AsideUser />
+        <div className="flex w-full h-full justify-center items-center">
+          <AsideUser />
+        </div>
       </Aside>
     </>
   );

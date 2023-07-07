@@ -17,11 +17,11 @@ export default function Document(): JSX.Element {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&family=Ubuntu+Mono&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&family=Ubuntu+Mono&display=swap"
           rel="stylesheet"
         />
       </Head>
-      <body className="font-body">
+      <body className="font-body bg-background text-white">
         <Main />
         <div id="aside" />
         <NextScript />

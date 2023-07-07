@@ -8,10 +8,12 @@ interface Props {
 
 export default function PageLayout({ children }: Props): JSX.Element {
   return (
-    <>
+    <div className="flex flex-col h-full">
       <NavBar />
-      <main>{children}</main>
+      <main className="flex-grow">
+        <div className="relative py-3 px-3 xxs:px-5">{children}</div>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
