@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 // Components
 import { CSSTransition } from 'react-transition-group';
 import ContentAside from './ContentAside';
+import AsideProvider from 'context/AsideContext/AsideProvider';
 
 interface Props {
   children: React.ReactNode;
@@ -10,6 +11,8 @@ interface Props {
   toggle: () => void;
   position?: 'left' | 'right';
   padding?: boolean;
+  full?: boolean;
+  header?: boolean;
 }
 
 export default function Aside({
@@ -17,7 +20,9 @@ export default function Aside({
   show,
   toggle,
   position = 'left',
-  padding = true
+  padding = true,
+  full = false,
+  header = true
 }: Props): JSX.Element | null {
   const nodeRef = useRef<HTMLDivElement>(null);
 
@@ -40,15 +45,16 @@ export default function Aside({
       classNames={position}
       unmountOnExit
     >
-      <ContentAside
-        ref={nodeRef}
+      <AsideProvider
         toggle={toggle}
         position={position}
         padding={padding}
         show={show}
+        full={full}
+        header={header}
       >
-        {children}
-      </ContentAside>
+        <ContentAside ref={nodeRef}>{children}</ContentAside>
+      </AsideProvider>
     </CSSTransition>
   );
 }

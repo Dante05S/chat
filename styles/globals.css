@@ -51,6 +51,16 @@ body {
 }
 
 @layer components {
+  .scroll {
+    @apply overflow-y-auto overflow-x-hidden;
+  }
+  .scroll::-webkit-scrollbar {
+    @apply w-1;
+  }
+  .scroll::-webkit-scrollbar-thumb {
+    @apply rounded-[20px] bg-primary;
+  }
+
   .textField {
     @apply placeholder:text-slate-400
     block
@@ -58,7 +68,6 @@ body {
     w-full
     py-2.5
     px-3
-    text-sm
     focus:outline-none focus:border-primary focus:ring-primary focus:ring-1
     [-moz-appearance:textfield];
   }

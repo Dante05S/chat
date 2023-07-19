@@ -1,5 +1,8 @@
 import Avatar from 'components/Display/Avatar';
+import Aside from 'components/Navigation/Aside';
+import useModal from 'hooks/useModal';
 import React from 'react';
+import Chat from '../Chat';
 
 function Message(): JSX.Element {
   return (
@@ -7,7 +10,7 @@ function Message(): JSX.Element {
       <div className="flex flex-grow-0">
         <Avatar src="/static/image.png" size={49} />
       </div>
-      <div className="flex flex-col  w-[calc(100%_-_49px)] flex-grow pl-3">
+      <div className="flex flex-col w-[calc(100%_-_49px)] flex-grow pl-3">
         <div className="flex items-center">
           <div className="flex flex-grow items-center overflow-hidden">
             <span className="text-base truncate">Alejandro Bedoya Sanchez</span>
@@ -33,11 +36,27 @@ function Message(): JSX.Element {
 }
 
 export default function ListMessages(): JSX.Element {
+  const [isOpen, toggle] = useModal();
+
   return (
-    <div className="flex flex-col items-center w-full">
-      {[1, 2, 3, 4].map((item) => (
-        <Message key={item} />
-      ))}
-    </div>
+    <>
+      <div className="flex flex-col items-center w-full">
+        {[1, 2, 3, 4].map((item) => (
+          <button key={item} className="w-full" onClick={toggle}>
+            <Message />
+          </button>
+        ))}
+      </div>
+      <Aside
+        full
+        show={isOpen}
+        toggle={toggle}
+        position="right"
+        header={false}
+        padding={false}
+      >
+        <Chat />
+      </Aside>
+    </>
   );
 }
