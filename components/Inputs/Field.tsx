@@ -16,6 +16,7 @@ export interface FieldProps extends InputProps {
   fontColor?: string;
   error?: boolean;
   name?: string;
+  fontSize?: string;
 }
 
 const Field = forwardRef<HTMLInputElement, FieldProps>(function Field(
@@ -26,10 +27,11 @@ const Field = forwardRef<HTMLInputElement, FieldProps>(function Field(
     type = 'text',
     variant = 'contained',
     styleInput = 'textField',
-    color = 'bg-secondary',
+    color = 'bg-tertiary',
     fontColor = 'text-secondary-font',
     error,
     name = '',
+    fontSize = 'text-sm',
     ...rest
   },
   ref
@@ -49,7 +51,7 @@ const Field = forwardRef<HTMLInputElement, FieldProps>(function Field(
         ref={ref}
         type={type}
         name={name}
-        className={clsx(fontColor, rounded, styleInput, {
+        className={clsx(fontColor, rounded, styleInput, fontSize, {
           'pl-10 pr-10': startIcon !== undefined && endIcon !== undefined,
           'pr-3 pl-10': startIcon !== undefined && endIcon === undefined,
           'pl-3 pr-10': endIcon !== undefined && startIcon === undefined,

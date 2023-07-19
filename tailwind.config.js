@@ -12,11 +12,15 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: '#5852D6',
+          dark: '#3e3a99',
           font: '#ffffff'
         },
         secondary: {
           DEFAULT: '#1B1B1B',
           font: '#ffffff'
+        },
+        tertiary: {
+          DEFAULT: '#16171B'
         },
         pane: 'rgba(46, 44, 54, 0.2)',
         error: {

@@ -7,19 +7,17 @@ import IconButton from 'components/Buttons/IconButton';
 
 // Icons
 import { MdClose } from 'react-icons/md';
+import useAside from 'hooks/useAside';
 
 interface Props {
   children: React.ReactNode;
-  toggle: () => void;
-  position?: 'left' | 'right';
-  padding?: boolean;
-  show: boolean;
 }
 
 const ContentAside = forwardRef<HTMLDivElement, Props>(function ContentAside(
-  { children, show, toggle, position = 'left', padding = true },
+  { children },
   ref
 ): JSX.Element | null {
+  const { show, toggle, full, position, header, padding } = useAside();
   const [mounted, setMounted] = useState<boolean>(true);
 
   useEffect(() => {
@@ -43,25 +41,32 @@ const ContentAside = forwardRef<HTMLDivElement, Props>(function ContentAside(
             ref={ref}
             className={clsx(
               'fixed z-50 top-0 bg-secondary text-secondary-font',
-              'w-full xs:w-96 h-full shadow-md',
+              'h-full shadow-md',
               {
+                'w-full xs:w-96': !full,
+                'w-full': full,
                 'left-0': position === 'left',
                 'right-0': position === 'right'
               }
             )}
           >
-            <div className="w-full p-2 flex">
-              <IconButton
-                onClick={() => {
-                  toggle();
-                }}
-              >
-                <MdClose />
-              </IconButton>
-            </div>
+            {header && (
+              <div className="w-full p-2 flex">
+                <IconButton
+                  onClick={() => {
+                    toggle();
+                  }}
+                >
+                  <MdClose />
+                </IconButton>
+              </div>
+            )}
+
             <div
-              className={clsx('scroll h-[calc(100%_-_60px)] bg-inherit', {
-                'p-3 pt-0': padding
+              className={clsx('scroll bg-inherit', {
+                'p-3 pt-0': padding,
+                'h-[calc(100%_-_60px)]': header,
+                'h-full': !header
               })}
             >
               {children}

@@ -21,6 +21,7 @@ interface Props extends FieldProps {
   disabled?: boolean;
   max?: string;
   color?: 'primary' | 'primary-font';
+  bgColor?: string;
 }
 
 const TextField = forwardRef<HTMLInputElement, Props>(function TextField(
@@ -39,6 +40,7 @@ const TextField = forwardRef<HTMLInputElement, Props>(function TextField(
     disabled = false,
     max,
     color = 'primary-font',
+    bgColor = 'bg-tertiary',
     ...rest
   },
   ref
@@ -64,6 +66,7 @@ const TextField = forwardRef<HTMLInputElement, Props>(function TextField(
         name={name}
         disabled={disabled}
         endIcon={endIcon}
+        color={bgColor}
         {...rest}
       />
       <FormHelperText>
