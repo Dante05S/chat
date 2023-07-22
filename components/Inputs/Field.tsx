@@ -6,8 +6,8 @@ import Input, { type InputProps } from './Input';
 
 export interface FieldProps extends InputProps {
   rounded?: string;
-  startIcon?: JSX.Element;
-  endIcon?: JSX.Element;
+  startIcon?: React.JSX.Element;
+  endIcon?: React.JSX.Element;
   id: string;
   type?: HTMLInputTypeAttribute;
   variant?: 'contained' | 'code';
@@ -35,7 +35,7 @@ const Field = forwardRef<HTMLInputElement, FieldProps>(function Field(
     ...rest
   },
   ref
-): JSX.Element {
+): React.JSX.Element {
   const muiFormControl = useFormControl();
 
   const formControlState = getFormControlState(

@@ -12,7 +12,7 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: '#5852D6',
-          dark: '#3e3a99',
+          dark: 'rgb(62 58 153 / <alpha-value>)',
           font: '#ffffff'
         },
         secondary: {
@@ -25,8 +25,7 @@ module.exports = {
         pane: 'rgba(46, 44, 54, 0.2)',
         error: {
           DEFAULT: 'rgb(211, 47, 47)',
-          background: '#f8d7da',
-          font: '#721c24'
+          dark: '#ab2626'
         },
         background: '#000000',
         success: '#64AE65'

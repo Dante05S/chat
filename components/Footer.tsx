@@ -1,7 +1,7 @@
 import React from 'react';
 import socialNetworks from 'utils/socialNetworks';
 
-export default function Footer(): JSX.Element {
+export default function Footer(): React.JSX.Element {
   return (
     <footer className="w-full bg-secondary flex flex-col items-center justify-center p-5">
       <p className="text-center">Made with ❤️ by Alejandro Bedoya Sanchez</p>

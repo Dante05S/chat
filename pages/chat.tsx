@@ -7,7 +7,7 @@ import ChatView from 'views/ChatView';
 // Context
 import PageProvider from 'context/PageContext/PageProvider';
 
-export default function chat(): JSX.Element {
+export default function chat(): React.JSX.Element {
   return (
     <PageProvider description="Chat App">
       <ChatView />

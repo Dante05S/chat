@@ -8,7 +8,7 @@ interface Props {
 export default function ClickAwayListener({
   children,
   onClickAway
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   const referenceElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

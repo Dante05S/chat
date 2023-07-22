@@ -6,7 +6,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function PageLayout({ children }: Props): JSX.Element {
+export default function PageLayout({ children }: Props): React.JSX.Element {
   return (
     <div className="flex flex-col h-full">
       <NavBar />

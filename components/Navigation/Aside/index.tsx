@@ -4,6 +4,8 @@ import React, { useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import ContentAside from './ContentAside';
 import AsideProvider from 'context/AsideContext/AsideProvider';
+import { type IconType } from 'react-icons';
+import { IoIosArrowBack } from 'react-icons/io';
 
 interface Props {
   children: React.ReactNode;
@@ -13,6 +15,9 @@ interface Props {
   padding?: boolean;
   full?: boolean;
   header?: boolean;
+  labelHeader?: string | React.JSX.Element;
+  iconHeader?: IconType;
+  stickyHeader?: boolean;
 }
 
 export default function Aside({
@@ -22,8 +27,11 @@ export default function Aside({
   position = 'left',
   padding = true,
   full = false,
-  header = true
-}: Props): JSX.Element | null {
+  header = true,
+  labelHeader = '',
+  iconHeader = IoIosArrowBack,
+  stickyHeader = false
+}: Props): React.JSX.Element | null {
   const nodeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -52,6 +60,9 @@ export default function Aside({
         show={show}
         full={full}
         header={header}
+        labelHeader={labelHeader}
+        iconHeader={iconHeader}
+        stickyHeader={stickyHeader}
       >
         <ContentAside ref={nodeRef}>{children}</ContentAside>
       </AsideProvider>

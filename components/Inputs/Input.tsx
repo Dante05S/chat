@@ -29,7 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     ...rest
   },
   ref
-): JSX.Element {
+): React.JSX.Element {
   const muiForm = useForm();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {

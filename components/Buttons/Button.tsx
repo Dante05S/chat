@@ -3,13 +3,7 @@ import clsx from 'clsx';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'contrast'
-    | 'wellthy'
-    | 'quaternary';
+  color?: 'primary' | 'error';
   variant?: 'rounded' | 'contained' | 'sharp';
   opacity?: string;
   font?: string;
@@ -31,7 +25,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(function Button(
     ...rest
   },
   ref
-): JSX.Element {
+): React.JSX.Element {
   return (
     <button
       ref={ref}
@@ -42,9 +36,12 @@ const Button = forwardRef<HTMLButtonElement, Props>(function Button(
         'disabled:text-[rgba(0,_0,_0,_0.12)]',
         font,
         opacity,
+        padding,
         {
           'text-primary-font bg-primary hover:text-primary-font hover:bg-primary-dark':
             color === 'primary',
+          'text-primary-font bg-error hover:text-primary-font hover:bg-error-dark':
+            color === 'error',
           'rounded-lg': variant === 'contained',
           'rounded-none': variant === 'sharp',
           'rounded-full': variant === 'rounded'

@@ -1,7 +1,7 @@
 import SpinnerPong from 'components/Animations/SpinnerPong';
 import React from 'react';
 
-export default function Loading(): JSX.Element {
+export default function Loading(): React.JSX.Element {
   return (
     <div className="flex flex-col gap-3 items-center">
       <SpinnerPong />

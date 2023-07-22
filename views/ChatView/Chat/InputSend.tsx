@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 // Icons
 import { BsSend } from 'react-icons/bs';
 
-export default function InputSend(): JSX.Element {
+export default function InputSend(): React.JSX.Element {
   const [message, setMessage] = useState('');
 
   return (

@@ -4,6 +4,9 @@ import dynamic from 'next/dynamic';
 // React
 import React, { useState } from 'react';
 
+// Icons
+import { MdClose } from 'react-icons/md';
+
 // Components
 import Avatar from 'components/Display/Avatar';
 import ClickAwayListener from 'components/ClickAwayListener';
@@ -12,6 +15,7 @@ import Card from 'components/Surfaces/Card';
 import navItemsUser from 'utils/navItemsUser';
 import useModal from 'hooks/useModal';
 import Loading from 'components/Loaders/Loading';
+import IconButton from 'components/Buttons/IconButton';
 
 const Aside = dynamic(async () => await import('components/Navigation/Aside'), {
   ssr: false
@@ -24,7 +28,7 @@ const AsideUser = dynamic(
   }
 );
 
-function ContentTooltip(): JSX.Element {
+function ContentTooltip(): React.JSX.Element {
   return (
     <Card spacing="p-3">
       <div className="w-44">
@@ -52,7 +56,7 @@ function ContentTooltip(): JSX.Element {
   );
 }
 
-export default function User(): JSX.Element {
+export default function User(): React.JSX.Element {
   const [open, setOpen] = useState<boolean>(false);
   const [openAside, toggleAside] = useModal();
 
@@ -97,8 +101,22 @@ export default function User(): JSX.Element {
           </Tooltip>
         </ClickAwayListener>
       </div>
-      <Aside show={openAside} toggle={toggleAside} position="right">
-        <div className="flex w-full h-full justify-center items-center">
+      <Aside
+        show={openAside}
+        toggle={toggleAside}
+        position="right"
+        header={false}
+      >
+        <div className="w-full flex py-2">
+          <IconButton
+            onClick={() => {
+              toggleAside();
+            }}
+          >
+            <MdClose />
+          </IconButton>
+        </div>
+        <div className="flex w-full h-[calc(100%_-_52px)] justify-center items-center">
           <AsideUser />
         </div>
       </Aside>

@@ -6,7 +6,9 @@ interface BoxMessageProps {
   rol: 'receiver' | 'transmitter';
 }
 
-export default function BoxMessage({ rol }: BoxMessageProps): JSX.Element {
+export default function BoxMessage({
+  rol
+}: BoxMessageProps): React.JSX.Element {
   return (
     <div
       className={clsx('flex flex-col px-5 py-1.5 w-fit max-w-[90%]', {

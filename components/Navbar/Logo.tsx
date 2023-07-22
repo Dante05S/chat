@@ -4,7 +4,7 @@ import Link from 'next/link';
 // React
 import React from 'react';
 
-export default function Logo(): JSX.Element {
+export default function Logo(): React.JSX.Element {
   return (
     <div className="font-logo text-2xl">
       <Link href="/">

@@ -6,7 +6,10 @@ interface Props {
   position: 'start' | 'end';
 }
 
-export default function InputIcon({ children, position }: Props): JSX.Element {
+export default function InputIcon({
+  children,
+  position
+}: Props): React.JSX.Element {
   return (
     <div
       className={clsx(

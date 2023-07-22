@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext } from 'react';
+import { type IconType } from 'react-icons';
+import { IoIosArrowBack } from 'react-icons/io';
 
 export interface AsideState {
   show: boolean;
@@ -8,6 +10,9 @@ export interface AsideState {
   padding: boolean;
   full: boolean;
   header: boolean;
+  labelHeader: string | React.JSX.Element;
+  iconHeader: IconType;
+  stickyHeader: boolean;
 }
 
 export const initState: AsideState = {
@@ -16,6 +21,9 @@ export const initState: AsideState = {
   position: 'left',
   padding: true,
   full: false,
-  header: true
+  header: true,
+  labelHeader: '',
+  iconHeader: IoIosArrowBack,
+  stickyHeader: false
 };
 export const AsideContext = createContext<AsideState>(initState);
