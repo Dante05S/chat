@@ -19,7 +19,7 @@ export default function Avatar({
   size = 50,
   src = '',
   alt = ''
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return (
     <>
       {children === undefined ? (

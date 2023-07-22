@@ -44,7 +44,7 @@ const TextField = forwardRef<HTMLInputElement, Props>(function TextField(
     ...rest
   },
   ref
-): JSX.Element {
+): React.JSX.Element {
   const muiForm = useForm();
 
   return (

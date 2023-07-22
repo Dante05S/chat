@@ -10,7 +10,7 @@ interface UseDrag {
   onDragStart: (
     e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
   ) => void;
-  moveTo: (direction: string, scrollVelocity?: number) => void;
+  moveTo: (direction: 'right' | 'left', scrollVelocity?: number) => void;
 }
 
 export default function useDrag(

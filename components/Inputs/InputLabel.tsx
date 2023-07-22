@@ -16,7 +16,7 @@ export default function InputLabel({
   error,
   color = 'primary-font',
   ...rest
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   const muiFormControl = useFormControl();
 
   const formControlState = getFormControlState(

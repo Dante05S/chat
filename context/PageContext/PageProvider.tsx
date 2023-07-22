@@ -12,7 +12,7 @@ export default function PageProvider({
   title = 'Chat.ABS()',
   description,
   children
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return (
     <PageContext.Provider
       value={{

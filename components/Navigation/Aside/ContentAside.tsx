@@ -2,12 +2,9 @@ import React, { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import clsx from 'clsx';
 
-// Components
-import IconButton from 'components/Buttons/IconButton';
-
-// Icons
-import { MdClose } from 'react-icons/md';
+// Iconss
 import useAside from 'hooks/useAside';
+import HeaderAside from './HeaderAside';
 
 interface Props {
   children: React.ReactNode;
@@ -16,8 +13,9 @@ interface Props {
 const ContentAside = forwardRef<HTMLDivElement, Props>(function ContentAside(
   { children },
   ref
-): JSX.Element | null {
-  const { show, toggle, full, position, header, padding } = useAside();
+): React.JSX.Element | null {
+  const { show, toggle, full, position, header, padding, stickyHeader } =
+    useAside();
   const [mounted, setMounted] = useState<boolean>(true);
 
   useEffect(() => {
@@ -50,27 +48,25 @@ const ContentAside = forwardRef<HTMLDivElement, Props>(function ContentAside(
               }
             )}
           >
-            {header && (
-              <div className="w-full p-2 flex">
-                <IconButton
-                  onClick={() => {
-                    toggle();
-                  }}
-                >
-                  <MdClose />
-                </IconButton>
+            {stickyHeader && header ? (
+              <div className="relative scroll bg-inherit h-full">
+                <HeaderAside />
+                {children}
               </div>
+            ) : (
+              <>
+                {header && <HeaderAside />}
+                <div
+                  className={clsx('scroll bg-inherit', {
+                    'p-3 pt-0': padding,
+                    'h-[calc(100%_-_64px)]': header,
+                    'h-full': !header
+                  })}
+                >
+                  {children}
+                </div>
+              </>
             )}
-
-            <div
-              className={clsx('scroll bg-inherit', {
-                'p-3 pt-0': padding,
-                'h-[calc(100%_-_60px)]': header,
-                'h-full': !header
-              })}
-            >
-              {children}
-            </div>
           </div>
         </>,
         document.getElementById('aside') as HTMLElement

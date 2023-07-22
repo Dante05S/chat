@@ -1,7 +1,7 @@
 import React from 'react';
 import BoxMessage from './BoxMessage';
 
-export default function Messages(): JSX.Element {
+export default function Messages(): React.JSX.Element {
   return (
     <div className="flex flex-col">
       <BoxMessage rol="receiver" />

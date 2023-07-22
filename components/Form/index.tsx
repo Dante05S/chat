@@ -29,7 +29,7 @@ export default function Form({
   onChangeErrors = () => {},
   onSubmit,
   validations = {}
-}: FormProps): JSX.Element {
+}: FormProps): React.JSX.Element {
   const [localErrors, setLocalErrors] = useState<Error[]>([]);
   const [values, setValues] = useState<any>({});
 

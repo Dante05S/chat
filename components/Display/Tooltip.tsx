@@ -12,7 +12,7 @@ interface Props {
   children?: React.ReactNode;
   onClose?: () => void;
   open?: boolean;
-  title: JSX.Element | string;
+  title: React.JSX.Element | string;
   disableHoverListener?: boolean;
   placement?: Placement;
 }
@@ -24,7 +24,7 @@ export default function Tooltip({
   title,
   placement = 'bottom',
   disableHoverListener = false
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   const [visible, setVisible] = useState<boolean>(false);
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null);

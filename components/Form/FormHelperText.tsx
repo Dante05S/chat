@@ -11,7 +11,7 @@ interface Props {
 export default function FormHelperText({
   children,
   error
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   const muiFormControl = useFormControl();
 
   const formControlState = getFormControlState(

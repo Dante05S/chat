@@ -21,7 +21,7 @@ export default function Badge({
   vertical = 'top',
   variant = 'standard',
   overlap = 'circular'
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return (
     <div className="relative">
       <div

@@ -7,7 +7,7 @@ import InputIcon from './Inputs/InputIcon';
 // Icons
 import { BiSearch } from 'react-icons/bi';
 
-export default function Search(): JSX.Element {
+export default function Search(): React.JSX.Element {
   const [input, setInput] = useState<string>('');
   return (
     <TextField

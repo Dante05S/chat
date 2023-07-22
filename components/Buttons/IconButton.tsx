@@ -14,7 +14,7 @@ export default function IconButton({
   disabled = false,
   type = 'button',
   ...rest
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return (
     <button
       type={type}

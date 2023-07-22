@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SpinnerPong(): JSX.Element {
+export default function SpinnerPong(): React.JSX.Element {
   return (
     <div className="flex w-full h-16 justify-center items-center">
       <span

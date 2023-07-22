@@ -11,7 +11,7 @@ export default function FormControl({
   children,
   error = false,
   required = false
-}: FormControlProps): JSX.Element {
+}: FormControlProps): React.JSX.Element {
   const childContext = useMemo(() => {
     return {
       error,

@@ -3,8 +3,9 @@ import Aside from 'components/Navigation/Aside';
 import useModal from 'hooks/useModal';
 import React from 'react';
 import Chat from '../Chat';
+import Header from '../Chat/Header';
 
-function Message(): JSX.Element {
+function Message(): React.JSX.Element {
   return (
     <div className="flex items-center w-full py-3">
       <div className="flex flex-grow-0">
@@ -35,13 +36,13 @@ function Message(): JSX.Element {
   );
 }
 
-export default function ListMessages(): JSX.Element {
+export default function ListMessages(): React.JSX.Element {
   const [isOpen, toggle] = useModal();
 
   return (
     <>
       <div className="flex flex-col items-center w-full">
-        {[1, 2, 3, 4].map((item) => (
+        {[1, 2, 3, 4, 5, 7, 8, 9].map((item) => (
           <button key={item} className="w-full" onClick={toggle}>
             <Message />
           </button>
@@ -52,8 +53,9 @@ export default function ListMessages(): JSX.Element {
         show={isOpen}
         toggle={toggle}
         position="right"
-        header={false}
         padding={false}
+        labelHeader={<Header />}
+        stickyHeader
       >
         <Chat />
       </Aside>

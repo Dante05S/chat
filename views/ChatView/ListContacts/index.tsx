@@ -3,7 +3,7 @@ import React from 'react';
 import Contacts from './Contacts';
 import ListMessages from './ListMessages';
 
-export default function ListContacts(): JSX.Element {
+export default function ListContacts(): React.JSX.Element {
   return (
     <div className="flex flex-col gap-4">
       <Search />

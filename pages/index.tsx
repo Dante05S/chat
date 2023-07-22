@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import PageProvider from 'context/PageContext/PageProvider';
 
-export default function Home(): JSX.Element {
+export default function Home(): React.JSX.Element {
   return (
     <PageProvider description="Pagina principal para iniciar a usar el chat">
       <div className={styles.container}>

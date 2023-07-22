@@ -4,7 +4,7 @@ import Badge from 'components/Display/Badge';
 import useDrag from 'hooks/useDrag';
 import React, { useRef } from 'react';
 
-export default function Contacts(): JSX.Element {
+export default function Contacts(): React.JSX.Element {
   const contactsRef = useRef<HTMLDivElement>(null);
   const { onDragging, onDragStart, isDragging } = useDrag(contactsRef, 'x');
 

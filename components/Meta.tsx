@@ -5,7 +5,7 @@ import Head from 'next/head';
 // React
 import React from 'react';
 
-export default function Meta(): JSX.Element {
+export default function Meta(): React.JSX.Element {
   const { title, description } = usePage();
   return (
     <Head>

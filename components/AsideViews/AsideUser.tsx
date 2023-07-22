@@ -2,7 +2,7 @@ import Avatar from 'components/Display/Avatar';
 import React from 'react';
 import navItemsUser from 'utils/navItemsUser';
 
-export default function AsideUser(): JSX.Element {
+export default function AsideUser(): React.JSX.Element {
   return (
     <div className="flex flex-col items-center w-full h-full">
       <Avatar size={65}>A</Avatar>
