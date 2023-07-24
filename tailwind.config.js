@@ -32,11 +32,15 @@ module.exports = {
       },
       screens: {
         'xxs': '369px',
-        'xs': '500px'
+        'xs': '500px',
+        '3xl': '1600px'
       },
       fontFamily: {
         body: ['"Poppins", sans-serif'],
         logo: ['"Ubuntu Mono", monospace']
+      },
+      maxWidth: {
+        'screen-3xl': '1600px'
       }
     }
   },

@@ -10,8 +10,8 @@ export default function PageLayout({ children }: Props): React.JSX.Element {
   return (
     <div className="flex flex-col h-full">
       <NavBar />
-      <main className="flex-grow">
-        <div className="relative py-3 px-3 xxs:px-5">{children}</div>
+      <main className="grow lg:h-[calc(100%_-_176px)]">
+        <div className="relative lg:h-full py-3 px-3">{children}</div>
       </main>
       <Footer />
     </div>

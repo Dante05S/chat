@@ -6,17 +6,27 @@ import React from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { FiTrash } from 'react-icons/fi';
 import useAside from 'hooks/useAside';
+import { useMediaQuery } from 'usehooks-ts';
 
 export default function Header(): React.JSX.Element {
   const { toggle } = useAside();
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+
   return (
     <div className="flex items-center flex-grow w-full">
-      <button onClick={toggle}>
+      {!isDesktop ? (
+        <button onClick={toggle}>
+          <div className="flex items-center">
+            <IoIosArrowBack className="text-3xl" />
+            <Avatar src="/static/image.png" size={40} />
+          </div>
+        </button>
+      ) : (
         <div className="flex items-center">
-          <IoIosArrowBack className="text-3xl" />
           <Avatar src="/static/image.png" size={40} />
         </div>
-      </button>
+      )}
+
       <div className="flex flex-col px-3 w-[calc(100%_-_106px)] flex-grow">
         <div className="flex items-center overflow-hidden">
           <span className="leading-tight font-medium truncate">

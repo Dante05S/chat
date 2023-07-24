@@ -1,44 +1,23 @@
 // React
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Components
 import PageLayout from 'layouts/PageLayout';
-import ListContacts from './ListContacts';
-import Button from 'components/Buttons/Button';
-import AddContact from './AddContact';
-import Aside from 'components/Navigation/Aside';
 
 // Icons
-import { AiOutlineUserAdd } from 'react-icons/ai';
-
-// Hooks
-import useModal from 'hooks/useModal';
+import { useMediaQuery } from 'usehooks-ts';
+import MobileView from './MobileView';
+import DesktopView from './DesktopView';
 
 export default function ChatView(): React.JSX.Element {
-  const [isOpen, toggle] = useModal();
+  const matches = useMediaQuery('(min-width: 1024px)');
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsDesktop(matches);
+  }, [matches]);
+
   return (
-    <PageLayout>
-      <ListContacts />
-      <div className="fixed w-16 h-16 z-10 right-3 bottom-3">
-        <Button
-          variant="rounded"
-          onClick={() => {
-            toggle();
-          }}
-        >
-          <AiOutlineUserAdd className="text-3xl" />
-        </Button>
-      </div>
-      <Aside
-        full
-        show={isOpen}
-        toggle={toggle}
-        position="right"
-        padding={false}
-        labelHeader="Contactos"
-      >
-        <AddContact />
-      </Aside>
-    </PageLayout>
+    <PageLayout>{!isDesktop ? <MobileView /> : <DesktopView />}</PageLayout>
   );
 }

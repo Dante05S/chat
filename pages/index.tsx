@@ -1,13 +1,17 @@
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import PageProvider from 'context/PageContext/PageProvider';
+import Link from 'next/link';
 
 export default function Home(): React.JSX.Element {
   return (
     <PageProvider description="Pagina principal para iniciar a usar el chat">
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1 className="text-3xl text-blue-300">Funca tailwind!</h1>
+          <Link href="/chat">
+            <h1 className="text-3xl text-blue-300">Funca tailwind!</h1>
+          </Link>
+
           <h1 className={styles.title}>
             Welcome to <a href="https://nextjs.org">Next.js!</a>
           </h1>
