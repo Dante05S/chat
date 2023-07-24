@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import TabsContext from 'context/TabsContext';
 import useDrag from 'hooks/useDrag';
+import { type PropsButton } from 'interfaces/props_button.interface';
 import React, { useMemo, useRef, useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
@@ -9,11 +10,6 @@ interface PropsTabs {
   onChange?: (newValue: string) => void;
   scrollButtons?: boolean;
   children: React.ReactNode;
-}
-
-interface PropsButton {
-  disabled: boolean;
-  moveTo: (direction: 'right' | 'left', scrollVelocity?: number) => void;
 }
 
 function LeftButton({ disabled, moveTo }: PropsButton): React.JSX.Element {
@@ -82,9 +78,7 @@ export default function Tabs({
 
   return (
     <TabsContext.Provider value={childContext}>
-      <div
-        className={clsx('flex w-full min-h-[48px] h-full', 'overflow-hidden')}
-      >
+      <div className="flex w-full min-h-[48px] h-full overflow-hidden">
         {scrollButtons && (
           <LeftButton disabled={disabledIconLeft} moveTo={moveTo} />
         )}

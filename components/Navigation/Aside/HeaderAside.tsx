@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import HeaderBar from 'components/Surfaces/HeaderBar';
 import useAside from 'hooks/useAside';
 import React from 'react';
 
@@ -6,14 +6,7 @@ export default function HeaderAside(): React.JSX.Element {
   const { toggle, labelHeader, iconHeader, stickyHeader } = useAside();
   const Icon = iconHeader;
   return (
-    <div
-      className={clsx(
-        'flex items-center bg-[rgba(0,0,0,0.6)] w-full h-16 px-2 backdrop-blur-sm',
-        {
-          'sticky z-10 top-0': stickyHeader
-        }
-      )}
-    >
+    <HeaderBar sticky={stickyHeader}>
       {typeof labelHeader === 'string' ? (
         <button
           onClick={() => {
@@ -30,6 +23,6 @@ export default function HeaderAside(): React.JSX.Element {
       ) : (
         labelHeader
       )}
-    </div>
+    </HeaderBar>
   );
 }
