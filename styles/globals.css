@@ -64,12 +64,24 @@ body {
   .textField {
     @apply placeholder:text-slate-400
     block
-    text-primary
     w-full
     py-2.5
     px-3
     focus:outline-none focus:border-primary focus:ring-primary focus:ring-1
     [-moz-appearance:textfield];
+  }
+
+  .buttonFlag .selected-flag {
+    background-color: unset !important;
+  }
+
+  .buttonFlag.disabled .selected-flag {
+    cursor: default !important;
+  }
+
+  .dropdown .country:hover,
+  .dropdown .country.highlight {
+    @apply !bg-gray-300;
   }
 
   .textField.form-control {

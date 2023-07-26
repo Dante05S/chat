@@ -7,6 +7,8 @@ import FormControl from '../Form/FormControl';
 import FormHelperText from 'components/Form/FormHelperText';
 import Field, { type FieldProps } from './Field';
 import useForm from 'hooks/useForm';
+import InputPhone, { type PhoneProps } from './InputPhone';
+import { type RefInputElement } from './Input';
 
 interface Props extends FieldProps {
   children?: React.ReactNode;
@@ -22,9 +24,10 @@ interface Props extends FieldProps {
   max?: string;
   color?: 'primary' | 'primary-font';
   bgColor?: string;
+  PhoneProps?: PhoneProps;
 }
 
-const TextField = forwardRef<HTMLInputElement, Props>(function TextField(
+const TextField = forwardRef<RefInputElement, Props>(function TextField(
   {
     children,
     id,
@@ -41,6 +44,7 @@ const TextField = forwardRef<HTMLInputElement, Props>(function TextField(
     max,
     color = 'primary-font',
     bgColor = 'bg-tertiary',
+    PhoneProps,
     ...rest
   },
   ref
@@ -59,16 +63,28 @@ const TextField = forwardRef<HTMLInputElement, Props>(function TextField(
           {label}
         </InputLabel>
       )}
-      <Field
-        ref={ref}
-        id={id}
-        type={type}
-        name={name}
-        disabled={disabled}
-        endIcon={endIcon}
-        color={bgColor}
-        {...rest}
-      />
+      {type !== 'tel' ? (
+        <Field
+          ref={ref}
+          id={id}
+          type={type}
+          name={name}
+          disabled={disabled}
+          endIcon={endIcon}
+          color={bgColor}
+          {...rest}
+        />
+      ) : (
+        <InputPhone
+          id={id}
+          name={name}
+          error={error}
+          endIcon={endIcon}
+          disabled={disabled}
+          {...PhoneProps}
+        />
+      )}
+
       <FormHelperText>
         {(helperText !== undefined &&
           (muiForm === undefined ||
