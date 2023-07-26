@@ -28,7 +28,7 @@ export default function InputLabel({
   return (
     <label
       htmlFor=""
-      className={clsx('my-1 text-xs font-medium', {
+      className={clsx('my-1.5 pl-1 text-xs font-medium', {
         'text-error': formControlState.error,
         'text-primary-font':
           !(formControlState.error ?? false) && color === 'primary-font',

@@ -1,9 +1,19 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import React, { forwardRef, type HTMLInputTypeAttribute } from 'react';
+import React, {
+  forwardRef,
+  useRef,
+  type HTMLInputTypeAttribute,
+  useImperativeHandle,
+  useEffect
+} from 'react';
 import useForm from 'hooks/useForm';
 import validator from 'helpers/Validator';
+
+export interface RefInputElement {
+  ref: HTMLInputElement | null;
+}
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -18,7 +28,7 @@ export interface InputProps
   ) => void;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+const Input = forwardRef<RefInputElement, InputProps>(function Input(
   {
     type = 'text',
     name = '',
@@ -31,6 +41,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   ref
 ): React.JSX.Element {
   const muiForm = useForm();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useImperativeHandle(
+    ref,
+    () => {
+      return { ref: inputRef.current };
+    },
+    []
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (holdMayus) {
@@ -60,9 +79,17 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     }
   };
 
+  useEffect(() => {
+    if (muiForm !== undefined && muiForm.errors.length > 0) {
+      if (inputRef.current !== null && muiForm.errors[0].field === name) {
+        inputRef.current.focus();
+      }
+    }
+  }, [muiForm?.errors]);
+
   return (
     <input
-      ref={ref}
+      ref={inputRef}
       type={type}
       name={name}
       value={muiForm?.values[name] ?? ''}

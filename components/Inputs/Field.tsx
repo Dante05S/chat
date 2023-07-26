@@ -2,7 +2,7 @@ import React, { forwardRef, type HTMLInputTypeAttribute } from 'react';
 import clsx from 'clsx';
 import useFormControl from 'hooks/useFormControl';
 import getFormControlState from 'utils/formControlState';
-import Input, { type InputProps } from './Input';
+import Input, { type RefInputElement, type InputProps } from './Input';
 
 export interface FieldProps extends InputProps {
   rounded?: string;
@@ -19,7 +19,7 @@ export interface FieldProps extends InputProps {
   fontSize?: string;
 }
 
-const Field = forwardRef<HTMLInputElement, FieldProps>(function Field(
+const Field = forwardRef<RefInputElement, FieldProps>(function Field(
   {
     rounded = 'rounded-lg',
     startIcon,

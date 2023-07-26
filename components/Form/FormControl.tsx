@@ -21,7 +21,7 @@ export default function FormControl({
 
   return (
     <FormControlContext.Provider value={childContext}>
-      <div className="flex h-fit w-full flex-col">{children}</div>
+      <div className="flex h-full w-full flex-col">{children}</div>
     </FormControlContext.Provider>
   );
 }

@@ -51,7 +51,7 @@ export default function ListMessages({ isBottom }: Props): React.JSX.Element {
   return (
     <>
       <div className="relative flex flex-col items-center w-full">
-        {[1, 2, 3, 4, 5, 7, 8, 9].map((item) => (
+        {[1, 2, 3].map((item) => (
           <button key={item} className="w-full" onClick={toggle}>
             <Message />
           </button>

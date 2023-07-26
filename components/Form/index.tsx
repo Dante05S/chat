@@ -14,6 +14,7 @@ import {
   getValidatorByOption,
   type ValidationField
 } from 'helpers/Validator';
+import { type PhoneElement } from 'interfaces/phone_element.interface';
 
 interface FormProps {
   children: React.ReactNode;
@@ -45,7 +46,9 @@ export default function Form({
     setValues((prev: any) => ({ ...prev, [field]: value }));
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> | PhoneElement
+  ): void => {
     const { name, value } = e.target;
     const newValues = getValues(name, value);
     setValues(newValues);
