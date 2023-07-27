@@ -5,3 +5,5 @@ export interface User {
   password: string;
   phone: string;
 }
+
+export type Login = Pick<User, 'email' | 'password'>;
