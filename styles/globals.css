@@ -91,10 +91,13 @@ body {
   .inputCode {
     @apply placeholder:text-slate-400
     block
-    w-16
+    w-14
+    h-14
+    xxs:w-16
+    xxs:h-16
     text-center
     p-4
-    text-xl
+    text-2xl
     font-semibold
     focus:outline-none focus:border-primary focus:ring-primary focus:ring-1
      [-moz-appearance:textfield];
