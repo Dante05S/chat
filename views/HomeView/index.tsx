@@ -1,7 +1,7 @@
 import PageLayout from 'layouts/PageLayout';
 import Link from 'next/link';
 import React from 'react';
-import FormLogin from './FormLogin';
+import FormRegister from './FormRegister';
 
 export default function HomeView(): React.JSX.Element {
   return (
@@ -16,7 +16,7 @@ export default function HomeView(): React.JSX.Element {
             <span className="text-primary hover:underline">Inicia sesión</span>
           </Link>
         </p>
-        <FormLogin />
+        <FormRegister />
       </div>
     </PageLayout>
   );
